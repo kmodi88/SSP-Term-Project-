@@ -1,0 +1,5 @@
+element1:
+  name: Network
+  requirements:
+  - req1
+  - req3
