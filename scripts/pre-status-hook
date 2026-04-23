@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# .git/hooks/pre-status
+# This hook runs all test cases automatically when `git status` is invoked.
+# To install: bash install_hooks.sh
+
+echo "Running project test suite before git status..."
+python -m pytest tests/ -v --tb=short
+STATUS=$?
+if [ $STATUS -ne 0 ]; then
+  echo ""
+  echo "WARNING: One or more tests failed. Showing git status anyway."
+fi
+exit 0
