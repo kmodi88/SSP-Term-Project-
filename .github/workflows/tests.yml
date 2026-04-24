@@ -1,31 +1,29 @@
 name: Run All Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+    branches: ["**"]
 
 jobs:
   test:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.10"
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Create dummy PDFs for testing
         run: |
-          python - <<'EOF'
-          import fitz
-          for name in ["cis-r1", "cis-r2", "cis-r3", "cis-r4"]:
-              doc = fitz.open()
-              page = doc.new_page()
-              page.insert_text((50, 50), f"Security requirements for {name}. Passwords must be rotated every 90 days. User accounts must be reviewed monthly.")
-              doc.save(f"pdfs/{name}.pdf")
-          EOF
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Run tests
-        run: pytest tests/ -v
+      - name: Run all test cases with pytest
+        run: |
+          pytest tests/ -v --tb=short
