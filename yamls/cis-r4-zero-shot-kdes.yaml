@@ -1,0 +1,6 @@
+element1:
+  name: Unknown
+  requirements:
+  - You are a security analyst. Read the following security requirements document
+    and identify all Key Data Elements (KDEs). For each KDE, list its name and the
+    specific requirements that reference it. Re

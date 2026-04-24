@@ -1,0 +1,9 @@
+element1:
+  name: Unknown
+  requirements:
+  - 'You are a security analyst. Follow these steps to identify Key Data Elements
+    (KDEs) from a security requirements document:
+
+    Step 1: Read the full document carefully.
+
+    Step 2: Identify all distinct data '

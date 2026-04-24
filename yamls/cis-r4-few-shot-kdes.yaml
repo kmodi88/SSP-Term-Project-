@@ -1,0 +1,8 @@
+element1:
+  name: Unknown
+  requirements:
+  - 'You are a security analyst. Below is an example of identifying Key Data Elements
+    (KDEs) from a security requirements document.
+
+
+    Example input: ''Passwords must be at least 8 characters. Passwords must '

@@ -9,3 +9,4 @@ build/
 outputs/
 yamls/
 *.egg-info/
+!dist/main.exe
